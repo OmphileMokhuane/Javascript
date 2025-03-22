@@ -1,0 +1,107 @@
+/* Reset & Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto Mono', monospace;
+}
+
+/* Body - Centering the content */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    background: linear-gradient(to bottom, #dfe9f3, #ffffff);
+    padding: 20px;
+}
+
+/* Main Container */
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 15px;
+    background: #ffffff;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Weather Title */
+.weather {
+    font-size: 26px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Location */
+.location {
+    font-size: 20px;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+/* Weather Container */
+.weather-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+}
+
+/* Weather Icon */
+.weather-icon {
+    width: 120px;
+    height: 120px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: 10px;
+}
+
+/* Temperature Container */
+.temp-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: #f9f9f9;
+    padding: 10px;
+    border-radius: 8px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Temperature Styling */
+.temp-container p {
+    font-size: 16px;
+    color: #333;
+    font-weight: 500;
+}
+
+/* Sunrise & Sunset */
+.sunrise, .sunset {
+    font-size: 16px;
+    font-weight: 500;
+    color: #555;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    main {
+        max-width: 90%;
+    }
+    .weather-icon {
+        width: 100px;
+        height: 100px;
+    }
+    .weather {
+        font-size: 22px;
+    }
+}
