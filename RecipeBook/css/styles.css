@@ -16,11 +16,18 @@ body {
     justify-content: center;
     align-items: center;
     padding: 20px;
+    flex-direction: column;
+    gap: 20px;
+}
+.top-container, .bottom-container {
+    width: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .hero {
-    width: 90%;
-    max-width: 500px;
+   width: 100%;
     height: auto;
     background-color: #fff;
     border-radius: 10px;
@@ -45,33 +52,41 @@ body {
     margin-bottom: 20px;
 }
 
+.bottom-container{
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
 .random-recipe {
     width: 100%;
-    height: 250px;
-    background-color: #f9f9f9;
+    height: 300px;
     border-radius: 10px;
     margin: 20px 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     color: #999;
     font-style: italic;
     padding: 10px;
+    gap: 0.5rem;
 }
 
 .random-recipe h2 {
     color: #333;
     font-size: 1rem;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
+    background-color: rgba(255, 255, 255, 0.886);
+    padding: 5px;
+    width: 100%;
+    text-align: center;
+    border-radius: 10px;
 }
 
-.random-recipe img {
-    width: 150px;
-    height: 130px;
-    object-fit: cover;
+.random-recipe p{
+    padding: 5px;
+    width: 100%;
+    text-align: center;
     border-radius: 10px;
-    max-width: 100%;
+    background-color: rgba(255, 255, 255, 0.574);
+    color: #333;
 }
 
 .nav-container {

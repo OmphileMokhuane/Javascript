@@ -1,5 +1,7 @@
 const url = "https://www.themealdb.com/api/json/v1/1/random.php";
 const randomMeal = document.getElementById('random-recipe');
+const randomImg = document.getElementById('rand-RecipeImg');
+const searchBtn = document.getElementById('search-btn');
 
 async function getRandomMeal() {
     try {
@@ -10,8 +12,10 @@ async function getRandomMeal() {
         randomMeal.innerHTML = `
             <h2>${data.meals[0].strMeal}</h2>
             <p>Category: ${data.meals[0].strCategory}</p>
-            <img src="${data.meals[0].strMealThumb}" alt="${data.meals[0].strMeal}" />
             `;
+        randomImg.style.backgroundImage = `url(${data.meals[0].strMealThumb})`;
+        randomImgStyling();
+        
     } catch (error) {
         console.error("Error fetching random meal:", error);
     }
@@ -20,3 +24,15 @@ async function getRandomMeal() {
 window.addEventListener('DOMContentLoaded', () => {
     getRandomMeal();
 });
+
+searchBtn.addEventListener('click', () => {
+    window.location.href = "search.html";
+});
+
+function randomImgStyling() {
+    
+    randomImg.style.backgroundSize = 'fill';
+    randomImg.style.backgroundPosition = 'center';
+    randomImg.style.overflow = 'hidden';
+    randomImg.style.borderRadius = '10px';
+}

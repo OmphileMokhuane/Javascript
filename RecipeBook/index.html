@@ -8,18 +8,23 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
 </head>
 <body>
-    <header class="hero">
-        <h1>Sugar and Spice, And Everything Nice</h1>
-        <p>Your personal recipe book</p>
+    <div class="top-container">
+        <div class="hero">
+            <h1>Sugar and Spice, And Everything Nice</h1>
+            <p>Your personal recipe book</p>
+            <nav class="nav-container">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#" id="recipe-list">Recipes List</a></li>
+                    <li class="nav-item"><a href="#" id="new-recipe">New Recipe</a></li>
+                    <li class="nav-item"><a href="#" id="search-btn">Search</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    
+    <div class="bottom-container" id="rand-RecipeImg">
         <div class="random-recipe" id="random-recipe"></div>
-        <nav class="nav-container">
-            <ul class="nav-list">
-                <li class="nav-item"><a href="#" id="recipe-list">Recipes List</a></li>
-                <li class="nav-item"><a href="#" id="new-recipe">New Recipe</a></li>
-                <li class="nav-item"><a href="#" id="search">Search</a></li>
-            </ul>
-        </nav>
-    </header>
+    </div>
     <main>
         <section id="recipes"></section>
     </main>
