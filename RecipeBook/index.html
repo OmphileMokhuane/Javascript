@@ -5,29 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipes</title>
     <link rel="stylesheet" href="/RecipeBook/css/styles.css">
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
 </head>
 <body>
-    <div class="top-container">
-        <div class="hero">
-            <h1>Sugar and Spice, And Everything Nice</h1>
-            <p>Your personal recipe book</p>
-            <nav class="nav-container">
+    <main>
+        <header class="nav-container">
+            <h1 class="nav-title">Recipes</h1>
+            <nav class="nav-menu">
                 <ul class="nav-list">
-                    <li class="nav-item"><a href="#" id="recipe-list">Recipes List</a></li>
-                    <li class="nav-item"><a href="#" id="new-recipe">New Recipe</a></li>
-                    <li class="nav-item"><a href="#" id="search-btn">Search</a></li>
+                    <li><a href="/RecipeBook/recipes.html">Recipes</a></li>
+                    <li><a href="/RecipeBook/recipe-details.html">Recipe Details</a></li>
+                    <li><a href="/RecipeBook/search-recipe.html" id="search-btn">Search New Recipes</a></li>
                 </ul>
             </nav>
-        </div>
-    </div>
-    
-    <div class="bottom-container" id="rand-RecipeImg">
-        <div class="random-recipe" id="random-recipe"></div>
-    </div>
-    <main>
-        <section id="recipes"></section>
+        </header>
+
+        <section class="hero">
+            <h1 class="hero-title">Sugar and Spice and Everything Nice</h1>
+            <div class="random-container">
+                <div id="rand-RecipeImg" class="rand-RecipeImg"></div>
+                <div class="rand-RecipeDetails">
+                    <p>Name: <span id="rand-food-name"></span></p>
+                    <p>Category: <span id="rand-food-category"></span></p>
+                    <p>Area: <span id="rand-food-area">
+                    </span></p>
+                    <p>Youtube link: <span id="rand-food-youtube"></span></p>
+                </div>
+            </div>
+        </section>
+
+
     </main>
-    <script src="/RecipeBook/js/app.js"></script>
+    <script src="js/app.js"></script>
+
 </body>
 </html>
