@@ -98,8 +98,9 @@ main {
 }
 
 .rand-RecipeImg{
-    width: 300px;
-    height: 300px;
+    width: 500px;
+    min-width: 500px;
+    height: auto;
     display: flex;
     flex-direction: column;
 }
@@ -115,6 +116,9 @@ main {
     width: auto;
     align-items: start;
     justify-content: start;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .rand-RecipeDetails p span{
