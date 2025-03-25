@@ -22,6 +22,7 @@ async function getRandomMeal() {
         foodCategory.innerHTML = data.meals[0].strCategory;
         foodArea.innerHTML = data.meals[0].strArea;
         foodYoutube.innerHTML = data.meals[0].strYoutube;
+        foodYoutube.href = data.meals[0].strYoutube;
         foodInstructions.innerHTML = data.meals[0].strInstructions.split('\n').join('<br>');
 
         randomImg.style.backgroundImage = `url(${data.meals[0].strMealThumb})`;
