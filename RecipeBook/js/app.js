@@ -1,4 +1,4 @@
-const url = "https://www.themealdb.com/api/json/v1/1/random.php";
+
 const randomMeal = document.getElementById('rand-RecipeImg');
 const randomImg = document.getElementById('rand-RecipeImg');
 
@@ -6,6 +6,9 @@ const searchBtn = document.getElementById('search-btn');
 
 async function getRandomMeal() {
     try {
+        //Link to the API for random meal
+        const url = "https://www.themealdb.com/api/json/v1/1/random.php";
+
         const randomImg = document.getElementById('rand-RecipeImg');
         const foodName = document.getElementById('rand-food-name');
         const foodCategory = document.getElementById('rand-food-category');
@@ -33,6 +36,24 @@ async function getRandomMeal() {
     }
 }
 
+function searchMeal() {
+    const searchInput = document.getElementById('search-input');
+    const searchValue = searchInput.value;
+    console.log(searchValue);
+    getMealByName(searchValue);
+}
+
+async function getMealByName(name) {
+    try{
+        const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`;
+        const response = await fetch(url);
+        const data = await response.json();
+        console.log(data);
+    }catch(error){
+        console.error("Error fetching meal by name:", error);
+    }
+};
+
 
 function randomImgStyling() {
     
@@ -44,5 +65,6 @@ function randomImgStyling() {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-    getRandomMeal();
+    //getRandomMeal();
+    getMealByName('chicken');
 });

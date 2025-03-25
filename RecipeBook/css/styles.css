@@ -103,6 +103,7 @@ main {
     height: auto;
     display: flex;
     flex-direction: column;
+    background-repeat: no-repeat;
 }
 
 .random-container{
@@ -123,4 +124,57 @@ main {
 
 .rand-RecipeDetails p span{
     color: #333333b2;
+}
+
+@media screen and (max-width: 768px){
+    .nav-container{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nav-title{
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-menu{
+        width: 100%;
+        justify-content: center;
+    }
+
+    .nav-list{
+        width: 100%;
+        justify-content: center;
+        display: flex;
+        gap: 15px;
+    }
+
+    .nav-list li a{
+        padding: 5px 10px;
+        background-color: #e0dddd74;
+        border-radius: 10px;
+    }
+
+    .hero{
+        width: 100%;
+        padding: 10px;
+    }
+
+    .rand-RecipeImg{
+        width: 100%;
+        min-width: 100%;
+    }
+
+    .random-container{
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .rand-RecipeDetails{
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+    
 }
