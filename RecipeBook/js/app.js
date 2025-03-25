@@ -1,26 +1,25 @@
-
-const randomMeal = document.getElementById('rand-RecipeImg');
 const randomImg = document.getElementById('rand-RecipeImg');
+const searchInput = document.getElementById('query');
+const displayResults = document.getElementById('search-results');
 
-const searchBtn = document.getElementById('search-btn');
-
+//Api call to get random meal
 async function getRandomMeal() {
     try {
         //Link to the API for random meal
         const url = "https://www.themealdb.com/api/json/v1/1/random.php";
 
-        const randomImg = document.getElementById('rand-RecipeImg');
+        //Fetch the data from the API
+        const response = await fetch(url);
+        const data = await response.json();
+        
+        
+        
         const foodName = document.getElementById('rand-food-name');
         const foodCategory = document.getElementById('rand-food-category');
         const foodArea = document.getElementById('rand-food-area');
         const foodYoutube = document.getElementById('rand-food-youtube');
         const foodInstructions = document.getElementById('rand-food-instructions');
 
-
-        const response = await fetch(url);
-        const data = await response.json();
-        console.log(data);
-        
         foodName.innerHTML = data.meals[0].strMeal;
         foodCategory.innerHTML = data.meals[0].strCategory;
         foodArea.innerHTML = data.meals[0].strArea;
@@ -30,29 +29,65 @@ async function getRandomMeal() {
 
         randomImg.style.backgroundImage = `url(${data.meals[0].strMealThumb})`;
         randomImgStyling();
-        
     } catch (error) {
         console.error("Error fetching random meal:", error);
     }
 }
 
-function searchMeal() {
-    const searchInput = document.getElementById('search-input');
-    const searchValue = searchInput.value;
-    console.log(searchValue);
-    getMealByName(searchValue);
+
+
+// Debounce function to limit API calls
+function debounce(func, delay) {
+    let timeoutId;
+    return function() {
+        const context = this;
+        const args = arguments;
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => {
+            func.apply(context, args);
+        }, delay);
+    };
 }
 
+function DisplaySearchMeal(data) {
+    // Clear previous results
+    displayResults.innerHTML = ''; // Clear previous results
+
+    if (data && data.meals) {
+        data.meals.forEach(meal =>{
+            const recipeCard = document.createElement('div');
+            recipeCard.classList.add('recipe-card');
+
+            recipeCard.innerHTML = `
+            <h3 class="card-title">${meal.strMeal}</h3>
+            <p class="card-category">${meal.strCategory}</p>
+            <a href="${meal.strYoutube}" target="_blank" class="card-link">Watch Recipe</a>
+            `
+        })
+    } else {
+        displayResults.innerHTML = '<p>No results found.</p>'; // Handle no results case
+    }
+}
+
+
+
+//Api call to get meal by name
 async function getMealByName(name) {
     try{
+        //Fetch the data from the API
         const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`;
         const response = await fetch(url);
         const data = await response.json();
-        console.log(data);
+        
+        DisplaySearchMeal(data);
+        
     }catch(error){
         console.error("Error fetching meal by name:", error);
+        displayResults.innerHTML = '<p>Error fetching results.</p>';
     }
 };
+
+
 
 
 function randomImgStyling() {
@@ -68,3 +103,12 @@ window.addEventListener('DOMContentLoaded', () => {
     //getRandomMeal();
     getMealByName('chicken');
 });
+
+searchInput.addEventListener('input', debounce(function(){
+    const query = searchInput.value.trim();
+    if(query >= 3){
+        getMealByName(query);
+    } else {
+        displayResults.innerHTML= '';
+    }
+}, 500));
